@@ -11,6 +11,8 @@ export const CaroselSlider = () => {
     const initSlider = () =>{
         const imageList = document.querySelector(".slider-wrapper .image-list");
         const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+        const v = document.querySelectorAll(".container .slider-scrollbar");
+        const scrollbarThumb = document.querySelectorAll(".scrollbar-thumb");
         const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
     
         slideButtons.forEach(button => {
@@ -24,6 +26,11 @@ export const CaroselSlider = () => {
         const handleSlideButtons = ()  => {
             slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
             slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
+        }
+
+        const updateScrollThumbPosition = () => {
+            const scrollPosition = imageList.scrollLeft;
+            const thumbPosition = (scrollPosition /maxScrollLeft) * (sliderScrollbar)
         }
     
         imageList.addEventListener("scroll", () => {

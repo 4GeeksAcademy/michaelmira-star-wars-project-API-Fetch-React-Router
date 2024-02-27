@@ -1,6 +1,8 @@
 const initSlider = () =>{
     const imageList = document.querySelector(".slider-wrapper .image-list");
     const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+    const v = document.querySelectorAll(".container .slider-scrollbar");
+    const scrollbarThumb = document.querySelectorAll(".scrollbar-thumb");
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
 
     slideButtons.forEach(button => {
@@ -16,8 +18,15 @@ const initSlider = () =>{
         slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
     }
 
+    const updateScrollThumbPosition = () => {
+        const scrollPosition = imageList.scrollLeft;
+        const thumbPosition = (scrollPosition /maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth); 
+        scrollbarThumb.style.left = `${thumbPosition}px`;
+    }
+
     imageList.addEventListener("scroll", () => {
-        handleSlideButtons();
+        handleSlideButtons(); 
+        updateScrollThumbPosition();
     });
 }
 
