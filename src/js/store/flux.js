@@ -1,4 +1,4 @@
-const baseURL ="http://swapi.tech/api/"
+const baseURL ="http://swapi.tech/api/";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			getPeople: async () => {
 				const response = await fetch(
-					baseURL + "people"
+					baseURL + "people?page=1&limit=100"
 				);
 				const body = await response.json();
 				const people = body.results;
