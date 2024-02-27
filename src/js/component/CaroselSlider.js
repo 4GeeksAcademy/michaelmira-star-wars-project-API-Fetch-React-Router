@@ -9,15 +9,26 @@ import "./CaroselSlider.css";
 
 export const CaroselSlider = () => {
     const initSlider = () =>{
+        const imageList = document.querySelector(".slider-wrapper .image-list");
         const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+        const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
     
         slideButtons.forEach(button => {
             button.addEventListener("click", () => {
-                console.log(button);
+                const direction = button.id === "prev-slide" ? -1 : 1;
+                const scrollAmount = imageList.clientWidth * direction;
+                imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
             }); 
         });
     
+        const handleSlideButtons = ()  => {
+            slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
+            slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
+        }
     
+        imageList.addEventListener("scroll", () => {
+            handleSlideButtons();
+        });
     }
     
     
@@ -41,7 +52,7 @@ export const CaroselSlider = () => {
                         <img src="https://picsum.photos/200" alt="img-9" className="image-item"></img>
                         <img src="https://picsum.photos/200" alt="img-10" className="image-item"></img>
                     </div>
-                    <button id="next-slide" className="slide-button material-symbols-rounded"><h2>&gt;</h2></button>
+                    <button id="next-slide" className="slide-button material-symbols-rounded"><h3>&gt;</h3></button>
                 </div>
                 <div className="slider-scrollbar">
                     <div className="scrollbar-track">
