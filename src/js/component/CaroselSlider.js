@@ -8,11 +8,27 @@ import "./CaroselSlider.css";
 
 
 export const CaroselSlider = () => {
+    const initSlider = () =>{
+        const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+    
+        slideButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                console.log(button);
+            }); 
+        });
+    
+    
+    }
+    
+    
+    
+    window.addEventListener("load", initSlider);
+
 	return (
 		<React.Fragment>
             <div className="container">
                 <div className="slider-wrapper">
-                    <button id="prev-slide" className="slide-button material-symbols-rounded">Chevron_left</button>
+                    <button id="prev-slide" className="slide-button material-symbols-rounded"><h2>&lt;</h2></button>
                     <div className="image-list">
                         <img src="https://picsum.photos/200" alt="img-1" className="image-item"></img>
                         <img src="https://picsum.photos/200" alt="img-2" className="image-item"></img>
@@ -25,7 +41,7 @@ export const CaroselSlider = () => {
                         <img src="https://picsum.photos/200" alt="img-9" className="image-item"></img>
                         <img src="https://picsum.photos/200" alt="img-10" className="image-item"></img>
                     </div>
-                    <button id="next-slide" className="slide-button material-symbols-rounded">Chevron_Right</button>
+                    <button id="next-slide" className="slide-button material-symbols-rounded"><h2>&gt;</h2></button>
                 </div>
                 <div className="slider-scrollbar">
                     <div className="scrollbar-track">
