@@ -1,28 +1,65 @@
-import React from 'react'
-import { Context } from "../store/appContext";
-import { Link } from 'react-router-dom';
+const BASE_URL = "https://swapi.tech/api/";
+const getState = ({ getStore, getActions, setStore }) => {
+	return {
+		store: {
+			people: [],
+			demo: [
+				{
+					title: "FIRST",
+					background: "white",
+					initial: "white"
+				},
+				{
+					title: "SECOND",
+					background: "white",
+					initial: "white"
+				}
+			]
+		},
+		actions: {
+			getPeople: async () => {
+				const response = await fetch(
+					BASE_URL + "people?page=1&limit=100"
+				);
+				const body = await response.json();
+				const people = body.results;
+				setStore({
+					people: people
+				});
+			},
+			getPerson: async (id) => {
+				const response = await fetch(
+					BASE_URL + "people/" + id
+				);
+				const body = await response.json();
+				const person = body.result;
+				return person;
+			},
+			// Use getActions to call a function within a fuction
+			exampleFunction: () => {
+				getActions().changeColor(0, "green");
+			},
+			loadSomeData: () => {
+				/**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+				*/
+			},
+			changeColor: (index, color) => {
+				//get the store
+				const store = getStore();
 
-export const PersonCard = ({person}) => {
-  const { store, actions } = useContext(Context);
-  const [detail, setDetail ] = useState();
-  useEffect(() => {
-    actions.getPerson(person.uid)
-      .then(detailPerson => setDetail(detailPerson));
-    }, []);
+				//we have to loop the entire demo array to look for the respective index
+				//and change its color
+				const demo = store.demo.map((elm, i) => {
+					if (i === index) elm.background = color;
+					return elm;
+				});
 
-  return (
-    <React.Fragement>
-      {detail !== undefined ? (
-        <div className="card" style={{width: "18rem"}}>
-          <img src="..." className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">{person.name}</h5>
-            <p className="card-text">{detail.properties.eye_color}</p>
-            <p className="card-text">{detail.properties.hair_color}</p>
-            <Link to={"/people/" + person.uid} className="btn btn-primary">more info</Link>
-          </div>
-        </div>
-      ) : null}
-    </React.Fragement>
-  )
-}
+				//reset the global store
+				setStore({ demo: demo });
+			}
+		}
+	};
+};
+
+export default getState;

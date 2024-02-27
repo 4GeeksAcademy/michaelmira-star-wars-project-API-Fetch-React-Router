@@ -14,7 +14,7 @@ export const SinglePerson = (props) => {
     return(
         <React.Fragment>
             {detail !== undefined ? (
-                <div className="d-flex flex column">
+                <div className="d-flex flex-column">
                     <h2>Hello person with  id: {params.uid}</h2>
                     <p>{detail.properties.eye_color}</p>
                     <p>{detail.properties.hair_color}</p>
