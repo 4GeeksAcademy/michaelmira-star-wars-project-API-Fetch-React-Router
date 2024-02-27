@@ -1,3 +1,5 @@
+import { ids } from "webpack";
+
 const baseURL ="http://swapi.tech/api/";
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -27,6 +29,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					people: people
 				});
+			},
+			getPerson: async (id) => {
+				const response = await fetch (
+					baseURL + "people/" + ids
+				);
+				const body = await response.json();
+				const person = body.result;
+				return person;
 			},
 
 			// Use getActions to call a function within a fuction
