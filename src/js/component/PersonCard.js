@@ -12,9 +12,9 @@ export const PersonCard = ({person}) => {
 
   return (
     <React.Fragement>
-      {detail ! == undefined ? (
+      {detail !== undefined ? (
         <div className="card" style={{width: "18rem"}}>
-          img src="..." className="card-img-top" alt="..." />
+          <img src="..." className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{person.name}</h5>
             <p className="card-text">{detail.properties.eye_color}</p>
