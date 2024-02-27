@@ -1,7 +1,7 @@
 import React from 'react'
 import
 
-const PersonCard = ({person}) => {
+export const PersonCard = ({person}) => {
   const { store, actions } = useContext(Context);
   const [detail, setDetail ] = useState();
   useEffect(() => {
@@ -18,17 +18,10 @@ const PersonCard = ({person}) => {
             <h5 className="card-title">{person.name}</h5>
             <p className="card-text">{detail.properties.eye_color}</p>
             <p className="card-text">{detail.properties.hair_color}</p>
-            
-          
+            <Link to={"/people/" + person.uid} className="btn btn-primary">more info</Link>
           </div>
-
-      
         </div>
-      )}
-
-
+      ) : null}
     </React.Fragement>
   )
 }
-
-export default PersonCard
