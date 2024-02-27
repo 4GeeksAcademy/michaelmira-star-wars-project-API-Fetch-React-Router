@@ -20,6 +20,14 @@ export const CaroselSlider = () => {
                         <img src="https://picsum.photos/200" alt="img-10" className="image-item"></img>
                     </div>
                 </div>
+                <div className="slider-scrollbar">
+                    <div className="scrollbar-track">
+                        <div className="scrollbar-thumb">
+
+                        </div>
+
+                    </div>
+                </div> 
             </div>
         </React.Fragment>
 	);
