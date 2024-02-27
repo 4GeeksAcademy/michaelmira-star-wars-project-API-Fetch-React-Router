@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
+import { Context } from "../store/appContext";
 
 
 export const SinglePerson = (props) => {
     const params = useParams(); // {uid: "some-value"}
-    const { store, actions } = useContrext(Context);
+    const { store, actions } = useContext(Context);
     const [detail, setDetail] = useState();
     useEffect(() => {
         actions.getPerson(params.uid)
@@ -21,6 +22,6 @@ export const SinglePerson = (props) => {
                 </div>
             ) : null}
         </React.Fragment>
-    )
+    );
 
-}
+};

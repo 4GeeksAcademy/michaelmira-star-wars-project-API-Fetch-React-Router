@@ -1,5 +1,3 @@
-import { ids } from "webpack";
-
 const baseURL ="http://swapi.tech/api/";
 
 const getState = ({ getStore, getActions, setStore }) => {
