@@ -1,8 +1,8 @@
 const initSlider = () =>{
     const imageList = document.querySelector(".slider-wrapper .image-list");
     const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
-    const v = document.querySelectorAll(".container .slider-scrollbar");
-    const scrollbarThumb = document.querySelectorAll(".scrollbar-thumb");
+    const sliderScrollbar = document.querySelectorAll(".container .slider-scrollbar");
+    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
 
     slideButtons.forEach(button => {
@@ -13,6 +13,7 @@ const initSlider = () =>{
         }); 
     });
 
+    // Update scrollbart thumb
     const handleSlideButtons = ()  => {
         slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
         slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
@@ -20,13 +21,12 @@ const initSlider = () =>{
 
     const updateScrollThumbPosition = () => {
         const scrollPosition = imageList.scrollLeft;
-        const thumbPosition = (scrollPosition /maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth); 
+        const thumbPosition = (scrollPosition /  maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
         scrollbarThumb.style.left = `${thumbPosition}px`;
     }
 
     imageList.addEventListener("scroll", () => {
-        handleSlideButtons(); 
-        updateScrollThumbPosition();
+        handleSlideButtons();
     });
 }
 
