@@ -95,7 +95,7 @@ body {
 .slider-scrollbar .scrollbar-thumb {
     position: absolute;
     height: 100%;
-    width: 50%;
+    width: 10%;
     background: #000;
     border-radius: inherit;
     cursor: grab;
@@ -107,4 +107,25 @@ body {
     right: 0;
     top: -10px;
     bottom: -10px;
+}
+
+/* Styles for mobile and tablet */
+@media (max-width: 1023px) {
+    .slider-wrapper .slide-button {
+        display: none!important;
+    }
+
+    .slider-wrapper .image-list {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        width: 280px;
+        height: 380px;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 20%;
+    }
 }

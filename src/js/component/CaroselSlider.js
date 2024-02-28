@@ -1,8 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./CaroselSlider.css";
-
-
 
 export const CaroselSlider = () => {
     const initSlider = () =>{
@@ -21,10 +18,20 @@ export const CaroselSlider = () => {
             const handleMouseMove = (e) => {
                 const deltaX = e.clientX - startX;
                 const newThumbPosition = thumbPosition + deltaX;
-                scrollbarThumb.style.left = `${newThumbPosition}px`;
-            }
+                const maxThumbPosition = sliderScrollbar[0].getBoundingClientRect().width - scrollbarThumb.offsetWidth;
 
-            const handleMouseUp = () 
+                const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+                const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+
+                scrollbarThumb.style.left = `${boundedPosition}px`;
+                imageList.scrollLeft = scrollPosition;
+            }
+            
+            // Remove event listeners on mouse up
+            const handleMouseUp = () => {
+                document.removeEventListener("mousemove", handleMouseMove);
+                document.removeEventListener("mouseup", handleMouseUp);
+            }
 
             // Add event listeners for drag interaction
             document.addEventListener("mousemove", handleMouseMove);
@@ -48,7 +55,7 @@ export const CaroselSlider = () => {
     
         const updateScrollThumbPosition = () => {
             const scrollPosition = imageList.scrollLeft;
-            const thumbPosition = (scrollPosition /  maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+            const thumbPosition = (scrollPosition /  maxScrollLeft) * (sliderScrollbar[0].clientWidth - scrollbarThumb.offsetWidth);
             scrollbarThumb.style.left = `${thumbPosition}px`;
         }
     
