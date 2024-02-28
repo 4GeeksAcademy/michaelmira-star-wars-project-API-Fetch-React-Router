@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CaroselSlider.css";
+import { Context } from "../store/appContext";
+import { PersonCard } from "../component/PersonCard";
 
 export const CaroselSlider = () => {
+    const { store } = useContext(Context);
+
     const initSlider = () =>{
         const imageList = document.querySelector(".slider-wrapper .image-list");
         const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
@@ -18,7 +22,7 @@ export const CaroselSlider = () => {
             const handleMouseMove = (e) => {
                 const deltaX = e.clientX - startX;
                 const newThumbPosition = thumbPosition + deltaX;
-                const maxThumbPosition = sliderScrollbar[0].getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+                const maxThumbPosition = sliderScrollbar.width - scrollbarThumb.offsetWidth;
 
                 const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
                 const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
@@ -47,11 +51,11 @@ export const CaroselSlider = () => {
             }); 
         });
     
-        // Update scrollbart thumb
-        const handleSlideButtons = ()  => {
-            slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
-            slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
-        }
+        // // Update scrollbart thumb
+        // const handleSlideButtons = ()  => {
+        //     slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
+        //     slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
+        // }
     
         const updateScrollThumbPosition = () => {
             const scrollPosition = imageList.scrollLeft;
@@ -60,7 +64,7 @@ export const CaroselSlider = () => {
         }
     
         imageList.addEventListener("scroll", () => {
-            handleSlideButtons();
+            
             updateScrollThumbPosition();
         });
     }
@@ -73,18 +77,13 @@ export const CaroselSlider = () => {
 		<React.Fragment>
             <div className="container">
                 <div className="slider-wrapper">
-                    <button id="prev-slide" className="slide-button material-symbols-rounded"><h2>&lt;</h2></button>
+                    <button id="prev-slide" className="slide-button material-symbols-rounded lower-element"><h2>&lt;</h2></button>
                     <div className="image-list">
-                        <img src="https://picsum.photos/200" alt="img-1" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-2" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-3" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-4" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-5" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-6" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-7" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-8" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-9" className="image-item"></img>
-                        <img src="https://picsum.photos/200" alt="img-10" className="image-item"></img>
+                        {store.people.map((person, index) => (
+                            <div key={person.uid}>
+                                <PersonCard person={person} className="image-item" />
+                            </div>
+                        ))}
                     </div>
                     <button id="next-slide" className="slide-button material-symbols-rounded"><h3>&gt;</h3></button>
                 </div>
