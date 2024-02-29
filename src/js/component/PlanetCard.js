@@ -2,15 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
+const BACKEND_URL = "https://starwars-visualguide.com/assets/img/planets/"
 
 
 export const PlanetCard = ({ planet }) => {
 	const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
 	useEffect(() => {
-		actions.getPerson(planet.uid)
-			.then(detailPerson => setDetail(detailPerson));
+		actions.getPlanet(planet.uid)
+			.then(detailPlanet => setDetail(detailPlanet));
 	}, []);
 
 	return (
@@ -20,9 +20,9 @@ export const PlanetCard = ({ planet }) => {
                     <img src={BACKEND_URL+planet.uid+".jpg"}  className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{planet.name}</h5>
-                        <p className="card-text">{detail.properties.eye_color}</p>
-                        <p className="card-text">{detail.properties.hair_color}</p>
-                        <Link to={"/people/" + planet.uid} className="btn btn-primary">more info</Link>
+                        <p className="card-text">{detail.properties.population}</p>
+                        <p className="card-text">{detail.properties.terrain}</p>
+                        <Link to={"/planet/" + planet.uid} className="btn btn-primary">more info</Link>
                     </div>
                 </div>
             ) : null}
