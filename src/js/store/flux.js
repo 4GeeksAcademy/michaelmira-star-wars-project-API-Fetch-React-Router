@@ -37,6 +37,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return person;
 			},
 
+			
+			getPlanet: async () => {
+				const response = await fetch(
+					baseURL + "planets?page=1&limit=100"
+				);
+				const body = await response.json();
+				const planets = body.results;
+				setStore({
+					planets: planets
+				});
+			},
+			getPlanets: async (id) => {
+				const response = await fetch (
+					baseURL + "planets/" + id
+				);
+				const body = await response.json();
+				const planet = body.result;
+				return planet;
+			},
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
