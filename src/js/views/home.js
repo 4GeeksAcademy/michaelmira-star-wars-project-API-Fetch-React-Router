@@ -3,17 +3,15 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { PersonCard } from "../component/PersonCard";
+import { CaroselSlider } from "../component/CaroselSlider";
+
 
 export const Home = () => {
-	const {store, actions} = useContext(Context);
 	return (
-		<div className="text-center mt-5">
+		<div  className="cardDiv text-center mt-5 d-flex flex-column w-100 align-items-center ">
 			<h2>People</h2>
-			{store.people.map((person, index) => {
-				return (
-					<PersonCard key={person.uid} person={person} />
-				)
-			})}
+				<CaroselSlider />
+			<h2>Panets</h2>
 		</div>
 	);
 };
