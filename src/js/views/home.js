@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import { PersonCard } from "../component/PersonCard";
 import { PeopleSlider } from "../component/PeopleSlider";
 import { PlanetsSlider } from "../component/PlanetsSlider";
+import { StarshipsSlider } from "../component/StarshipsSlider";
 
 
 export const Home = () => {
@@ -15,7 +16,7 @@ export const Home = () => {
 			<h2>Panets</h2>
 				<PlanetsSlider />
 			<h2>Starships</h2>
-			
+				<StarshipsSlider />
 		</div>
 	);
 };
