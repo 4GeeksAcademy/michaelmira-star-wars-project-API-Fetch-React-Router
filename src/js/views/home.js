@@ -14,6 +14,8 @@ export const Home = () => {
 				<PeopleSlider />
 			<h2>Panets</h2>
 				<PlanetsSlider />
+			<h2>Starships</h2>
+			
 		</div>
 	);
 };
