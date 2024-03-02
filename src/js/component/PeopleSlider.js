@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { PersonCard } from "../component/PersonCard";
+import { PersonCard } from "./PersonCard";
 
-export const CaroselSlider = () => {
+export const PeopleSlider = () => {
     const { store } = useContext(Context);
 
 	return (

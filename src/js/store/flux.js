@@ -3,6 +3,7 @@ const baseURL ="https://swapi.tech/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			planets:[],
 			people:[],
 			demo: [
 				{
@@ -38,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			
-			getPlanet: async () => {
+			getPlanets: async () => {
 				const response = await fetch(
 					baseURL + "planets?page=1&limit=100"
 				);
@@ -48,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					planets: planets
 				});
 			},
-			getPlanets: async (id) => {
+			getPlanet: async (id) => {
 				const response = await fetch (
 					baseURL + "planets/" + id
 				);
