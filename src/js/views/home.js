@@ -4,6 +4,7 @@ import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { PersonCard } from "../component/PersonCard";
 import { PeopleSlider } from "../component/PeopleSlider";
+import { PlanetsSlider } from "../component/PlanetsSlider";
 
 
 export const Home = () => {
@@ -12,6 +13,7 @@ export const Home = () => {
 			<h2>People</h2>
 				<PeopleSlider />
 			<h2>Panets</h2>
+				<PlanetsSlider />
 		</div>
 	);
 };
