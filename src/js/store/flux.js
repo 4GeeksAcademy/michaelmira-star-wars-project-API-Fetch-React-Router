@@ -57,6 +57,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const planet = body.result;
 				return planet;
 			},
+			
+			getStarships: async () => {
+				const response = await fetch(
+					baseURL + "starships?page=1&limit=100"
+				);
+				const body = await response.json();
+				const starships = body.results;
+				setStore({
+					starships: starships
+				});
+			},
+			getStarship: async (id) => {
+				const response = await fetch (
+					baseURL + "starships/" + id
+				);
+				const body = await response.json();
+				const starship = body.result;
+				return starship;
+			},
 
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
