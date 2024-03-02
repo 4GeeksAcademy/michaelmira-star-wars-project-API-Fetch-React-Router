@@ -8,8 +8,8 @@ export const PlanetSlider = () => {
 	return (
 		<React.Fragment>
             <div  id="cardDiv" className=" d-flex flex-nowrap overflow-scroll" style={{ width: "80%" } } >
-				{store.people.map((person, index) => (
-                    <PersonCard person={person} key={person.uid} />
+				{store.planet.map((planet, index) => (
+                    <PlanetCard planet={planet} key={planet.uid} />
                 ))}
 			</div>
         </React.Fragment>
