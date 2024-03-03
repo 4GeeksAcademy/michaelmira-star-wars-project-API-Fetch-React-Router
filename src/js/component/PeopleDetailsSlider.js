@@ -9,7 +9,6 @@ export const PeopleDetailsSlider = () => {
 		<React.Fragment>
             <div>
                 <h1>Character Details </h1>
-                    <PersonDetailsCard />
 
                     
 				{/* {store.people.map((person, index) => (
