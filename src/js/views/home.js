@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import { Context } from "../store/appContext";
-import { PersonCard } from "../component/PersonCard";
 import { PeopleSlider } from "../component/PeopleSlider";
 import { PlanetsSlider } from "../component/PlanetsSlider";
 import { StarshipsSlider } from "../component/StarshipsSlider";
+import { PersonCard } from "../component/PersonCard";
+import { PersonDetailsCard } from "../component/PersonDetailsCard";
 
 
 export const Home = () => {
@@ -17,6 +16,8 @@ export const Home = () => {
 				<PlanetsSlider />
 			<h2>Starships</h2>
 				<StarshipsSlider />
+			{/* <h2>PeopleSliderLarge</h2>
+				<PersonDetailsCard /> */}
 		</div>
 	);
 };

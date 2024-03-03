@@ -22,7 +22,8 @@ export const PersonCard = ({ person }) => {
                         <h5 className="card-title">{person.name}</h5>
                         <p className="card-text">{detail.properties.eye_color}</p>
                         <p className="card-text">{detail.properties.hair_color}</p>
-                        <Link to={"/people/" + person.uid} className="btn btn-primary">more info</Link>
+                        <Link to={"/details/characters/" + person.uid} className="btn btn-primary">more info</Link>
+                        
                     </div>
                 </div>
             ) : null}

@@ -6,18 +6,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets:[],
 			people:[],
 			starships:[],
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
 		},
 		actions: {
 			getPeople: async () => {

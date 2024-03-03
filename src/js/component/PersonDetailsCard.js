@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
 
 
-export const PersonBioPage = ({ person }) => {
+export const PersonDetailsCard = ({ person }) => {
 	const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
 	useEffect(() => {
@@ -15,7 +15,6 @@ export const PersonBioPage = ({ person }) => {
 
 	return (
         <React.Fragment>
-            {detail !== undefined ? (
                 <div className="card" style={{ minWidth: "18rem" }}>
                     <img src={BACKEND_URL+person.uid+".jpg"}  className="card-img-top" alt="..." />
                     <div className="card-body">
@@ -28,10 +27,9 @@ export const PersonBioPage = ({ person }) => {
                         <p className="card-text">{detail.properties.birth_year}</p>
                         <p className="card-text">{detail.properties.gender}</p>
                         <p className="card-text">{detail.properties.description}</p>
-                        <Link to={"/"} className="btn btn-primary"> BACK </Link>
+                        <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                     </div>
                 </div>
-            ) : null}
         </React.Fragment>
     )
 }
