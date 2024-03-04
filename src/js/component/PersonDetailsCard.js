@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
 
 
-export const PersonDetailsCard = ({ person }) => {
+export const PersonDetailsCard = ({ match }) => {
 	const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
 	useEffect(() => {
+        const uid = match.params.uid
 		actions.getPerson(person.uid)
 			.then(detailPerson => setDetail(detailPerson));
-	}, []);
+	}, [match.params.uid]);
 
 	return (
         <React.Fragment>
