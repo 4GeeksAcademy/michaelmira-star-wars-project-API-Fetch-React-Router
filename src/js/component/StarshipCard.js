@@ -23,6 +23,7 @@ export const StarshipCard = ({ starship }) => {
                         <p className="card-text">{detail.properties.model}</p>
                         <p className="card-text">{detail.properties.class}</p>
                         <Link to={"/starship/" + starship.uid} className="btn btn-primary">more info</Link>
+                        <button className="danger m-2" >Favorites</button>
                     </div>
                 </div>
             ) : null}

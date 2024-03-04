@@ -8,8 +8,8 @@ export const Navbar = () => {
 				<span className="navbar-brand mb-0 h1">Michaelmira's StarWars API using Fetch, React, and Router </span>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
+				<Link to="/favorites">
+					<button className="btn btn-primary">Favorites</button>
 				</Link>
 			</div>
 		</nav>

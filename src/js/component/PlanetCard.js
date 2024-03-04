@@ -23,6 +23,7 @@ export const PlanetCard = ({ planet }) => {
                         <p className="card-text">{detail.properties.population}</p>
                         <p className="card-text">{detail.properties.terrain}</p>
                         <Link to={"/planet/" + planet.uid} className="btn btn-primary">more info</Link>
+                        <button className="danger m-2" >Favorites</button>
                     </div>
                 </div>
             ) : null}
