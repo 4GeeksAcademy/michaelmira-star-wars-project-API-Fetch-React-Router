@@ -23,6 +23,7 @@ export const PersonCard = ({ person }) => {
                         <p className="card-text">{detail.properties.eye_color}</p>
                         <p className="card-text">{detail.properties.hair_color}</p>
                         <Link to={"/details/characters/" + person.uid} className="btn btn-primary">more info</Link>
+                        <button className="danger p-2" >Favorites</button>
                         
                     </div>
                 </div>
