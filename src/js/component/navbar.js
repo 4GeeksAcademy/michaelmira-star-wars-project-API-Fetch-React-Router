@@ -9,9 +9,9 @@ export const Navbar = () => {
 					<img  src="https://visualpharm.com/assets/195/Star%20Wars-595b40b85ba036ed117de471.svg" className="card-img-top" alt="Empty Image" style={{ width: '200px', height: '100px' }} /> 
 				</span>
 			</Link>
-			<div className="ml-auto">
+			<div className="ml-auto pr-5">
 				<Link to="/favorites">
-					<button className="btn btn-primary">Favorites</button>
+					<button className="btn btn-primary" style={{ marginRight: "50px" }} >Favorites</button>
 				</Link>
 			</div>
 		</nav>
