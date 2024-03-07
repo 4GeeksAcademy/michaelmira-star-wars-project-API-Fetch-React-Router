@@ -72,10 +72,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					uid: uid,
 					category: category
 				}
-
+				let store = getStore()
+				store.favorites.push(newFavorite)
+				setStore(store)
+			},
+			deleteFavorite: (uid, category) => {
+				let store = getStore()
+				let newFavorites = store.favorites.filter(item => item.uid == uid && item.category == category)
+				setStore({favorites: newFavorites })
 			}
 		}
 	};
+
 };
 
 export default getState;
