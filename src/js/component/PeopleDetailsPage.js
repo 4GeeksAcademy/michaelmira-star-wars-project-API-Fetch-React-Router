@@ -16,7 +16,7 @@ export const PeopleDetailsPage = () => {
 	return (
         <React.Fragment>
         <div className="card" style={{ minWidth: "18rem" }}>
-            <img src={BACKEND_URL+params.uid+".jpg"} style={{ minWidth: "18rem" }}  className="card-img-top" alt="..." />
+            <img src={BACKEND_URL+params.uid+".jpg"} style={{ maxWidth: "40rem" }}  className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{detail?.properties.name}</h5>
                     <p className="card-text">{detail?.properties.height}</p>

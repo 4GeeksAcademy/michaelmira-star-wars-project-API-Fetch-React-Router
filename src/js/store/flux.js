@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets:[],
 			people:[],
 			starships:[],
+			favorites:[],
 		},
 		actions: {
 			getPeople: async () => {
@@ -65,6 +66,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const starship = body.result;
 				return starship;
 			},
+			addFavorite: (name, uid, category) => {
+				let newFavorite = {
+					name: name,
+					uid: uid,
+					category: category
+				}
+
+			}
 		}
 	};
 };

@@ -23,7 +23,9 @@ export const PersonCard = ({ person }) => {
                         <p className="card-text">{detail.properties.eye_color}</p>
                         <p className="card-text">{detail.properties.hair_color}</p>
                         <Link to={"/details/characters/" + person.uid} className="btn btn-primary">more info</Link>
-                        <button className="danger m-2" >Favorites</button>
+                        <button className="danger m-2" onClick={() => {
+                            if(person.name in store.favorties)
+                        }} >Favorites</button>
                         
                     </div>
                 </div>
