@@ -2,15 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 
-const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
+const BACKEND_URL = "https://starwars-visualguide.com/assets/img/planets/"
 
-export const PeopleDetailsPage = () => {
+export const PlanetsDetailsPage = () => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
     const params = useParams()
 	useEffect(() => {
-		actions.getPerson(params.uid)
-			.then(detailPerson => setDetail(detailPerson));
+		actions.getPlanet(params.uid)
+			.then(detailPlanet => setDetail(detailPlanet));
 	}, []);
 
 	return (
