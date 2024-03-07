@@ -1,22 +1,24 @@
-<h5 className="card-title">{person.name}</h5>
-<p className="card-text">{detail.properties.height}</p>
-<p className="card-text">{detail.properties.mass}</p>
-<p className="card-text">{detail.properties.hair_color}</p>
-<p className="card-text">{detail.properties.skin_color}</p>
-<p className="card-text">{detail.properties.eye_color}</p>
-<p className="card-text">{detail.properties.birth_year}</p>
-<p className="card-text">{detail.properties.gender}</p>
-<p className="card-text">{detail.properties.description}</p>
-
-<Link to={"/details/" + category + "/" + index}>
-    <button type="button" className="btn btn-primary">Learn more!</button>
-</Link>
-
-<Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/details/characters/:theid" element={<Details category="characters" />} />
-    <Route path="/details/planets/:theid" element={<Details category="planets" />} />
-    <Route path="/details/starships/:theid" element={<Details category="starships" />} />
-    <Route path="*" element={<h1>Not found!</h1>} />
-</Routes>
-<Footer />
+const BACKEND_URL = "https://starwars-visualguide.com/assets/img/planets/"
+{
+    "message": "ok",
+    "result": {
+      "properties": {
+        "diameter": "10465",
+        "rotation_period": "23",
+        "orbital_period": "304",
+        "gravity": "1 standard",
+        "population": "200000",
+        "climate": "arid",
+        "terrain": "desert",
+        "surface_water": "1",
+        "created": "2024-03-07T07:07:15.114Z",
+        "edited": "2024-03-07T07:07:15.114Z",
+        "name": "Tatooine",
+        "url": "https://www.swapi.tech/api/planets/1"
+      },
+      "description": "A planet.",
+      "_id": "5f7254c11b7dfa00041c6fae",
+      "uid": "1",
+      "__v": 0
+    }
+  }

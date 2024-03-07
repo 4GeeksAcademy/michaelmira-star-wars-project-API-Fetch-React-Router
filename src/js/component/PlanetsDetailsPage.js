@@ -18,19 +18,20 @@ export const PlanetsDetailsPage = () => {
             <div className="card border border-0">
                 <div className="row text-center">
                     <div className="col-md-6 text-center">
-                        <img src={BACKEND_URL+params.uid+".jpg"} style={{ maxWidth: "40rem" }}  className="card-img-top" alt="..." />
+                        <img src={BACKEND_URL+params.uid+".jpg"} style={{ maxWidth: "50rem" }}  className="card-img-top" alt="..." />
                     </div>
                     <div className="col-md-6">
                         <div className="card-body text-center">
-                            <h1 className="card-title display-1 "><strong>Name : {detail?.properties.name}</strong></h1>
-                            <h3 className="card-text display-4">Height : {detail?.properties.height}</h3>
-                            <h3 className="card-text display-4">Weight : {detail?.properties.mass}</h3>
-                            <h3 className="card-text display-4">Hair Color : {detail?.properties.hair_color}</h3>
-                            <h3 className="card-text display-4">Skin Color : {detail?.properties.skin_color}</h3>
-                            <h3 className="card-text display-4">Eye Color : {detail?.properties.eye_color}</h3>
-                            <h3 className="card-text display-4">Birth Year : {detail?.properties.birth_year}</h3>
-                            <h3 className="card-text display-4">Gender : {detail?.properties.gender}</h3>
-                            <h3 className="card-text display-4">Description : {detail?.description}</h3>
+                            <h1 className="card-title display-2 "><strong>Name : {detail?.properties.name}</strong></h1>
+                            <h3 className="card-text display-5">Diameter : {detail?.properties.diameter}</h3>
+                            <h3 className="card-text display-5">Rotation Period : {detail?.properties.rotation_period}</h3>
+                            <h3 className="card-text display-5">Orbital Period : {detail?.properties.orbital_period}</h3>
+                            <h3 className="card-text display-5">Gravity : {detail?.properties.gravity}</h3>
+                            <h3 className="card-text display-5">Population : {detail?.properties.population}</h3>
+                            <h3 className="card-text display-5">Climate : {detail?.properties.climate}</h3>
+                            <h3 className="card-text display-5">Terrain : {detail?.properties.terrain}</h3>
+                            <h3 className="card-text display-5">Surface Water : {detail?.properties.surface_water}</h3>
+                            <h3 className="card-text display-5">Description : {detail?.description}</h3>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>
