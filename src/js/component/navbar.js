@@ -18,10 +18,16 @@ export const Navbar = () => {
 					Dropdown button
 				</button>
 				<ul className="dropdown-menu">
-					<li className="dropdown-item" >
-						<h5>Characters</h5>
-						{store.favorites} 
-					</li>
+					{store.favorites.map((favorite, index) => (
+						<li key={index} className="dropdown-item" >
+							<h5>Characters</h5>
+							<p>Luke Skywalker</p>
+							{store.favorites} 
+						</li>
+					))}
+					{store.favorites.length === 0 && (
+              			<li className="dropdown-item">No favorites yet</li>
+            		)}
 
 
 					<li><a className="dropdown-item" href="#">Another action</a></li>
