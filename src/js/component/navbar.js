@@ -11,7 +11,7 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto pr-5">
 				<Link to="/favorites">
-					<button className="btn btn-primary" style={{ marginRight: "50px" }} >Favorites</button>
+					<button className="btn btn-lg btn-primary" style={{ marginRight: "50px" }} >Favorites</button>
 				</Link>
 			</div>
 		</nav>
