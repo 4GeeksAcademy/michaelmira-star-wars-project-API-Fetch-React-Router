@@ -1,4 +1,4 @@
-import React, {useContext,} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -10,21 +10,21 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto pr-5">
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			{/* <div className="dropdown">
+				<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Dropdown button
 				</button>
-				<ul class="dropdown-menu">
+				<ul className="dropdown-menu">
 					<li className="dropdown-item" >
 						<h5>Characters</h5>
 						{store.favorites} 
 					</li>
 
 
-					<li><a class="dropdown-item" href="#">Another action</a></li>
-					<li><a class="dropdown-item" href="#">Something else here</a></li>
+					<li><a className="dropdown-item" href="#">Another action</a></li>
+					<li><a className="dropdown-item" href="#">Something else here</a></li>
 				</ul>
-			</div>
+			</div> */}
 			
 				<Link to="/favorites">
 					<button className="btn btn-lg btn-primary" style={{ marginRight: "50px" }} >Favorites</button>
