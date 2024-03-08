@@ -24,8 +24,7 @@ export const Navbar = () => {
 						.filter((favorite) => favorite.category === "people")
 						.map((favorite, index) => (
 							<li key={index} className="dropdown-item" >
-								{console.log(favorite)} 
-								{favorite.name}
+								<Link to={"/details/characters/" + favorite.uid}  >{favorite.name}</Link>
 								<button
 									type="button"
 									class="btn "
