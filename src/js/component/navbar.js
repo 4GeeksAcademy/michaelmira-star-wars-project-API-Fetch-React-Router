@@ -18,10 +18,9 @@ export const Navbar = () => {
 					Dropdown button
 				</button>
 				<ul className="dropdown-menu">
-					
+				<li className="dropdown-item"><h5>Characters</h5></li>
 					{store.favorites.map((favorite, index) => (
 						<li key={index} className="dropdown-item" >
-							<h5>Characters</h5>
 							{console.log(favorite)} 
 							{favorite.name}
 						</li>
@@ -31,8 +30,8 @@ export const Navbar = () => {
             		)}
 
 
-					<li><a className="dropdown-item" href="#">Another action</a></li>
-					<li><a className="dropdown-item" href="#">Something else here</a></li>
+					<li><a className="dropdown-item" href="#"><h5>Planets</h5></a></li>
+					<li><a className="dropdown-item" href="#"><h5>Starships</h5></a></li>
 				</ul>
 			</div>
 			
