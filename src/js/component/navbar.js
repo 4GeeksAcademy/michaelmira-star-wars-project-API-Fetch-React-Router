@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<nav className="navbar sticky-top navbar-light bg-light mb-3">
@@ -29,8 +29,24 @@ export const Navbar = () => {
 								<button
 									type="button"
 									class="btn "
-									data-bs-toggle="modal"
+									// data-bs-toggle="modal"
 									// data-bs-target={"#deleteModal"+contact.id}
+									// onClick={() => {
+									// 	let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "people" )
+									// 	if(checkFavorite){
+									// 		actions.deleteFavorite(favorite.uid, "people");
+									// 	} else {
+									// 		console.log("Person not found in favorites");
+									// 	}}}
+									onClick={() => {
+										let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "people");
+										if (checkFavorite) {
+										  actions.deleteFavorite(favorite.name, "people");
+										} else {
+										  console.log("Person not found in favorites");
+										}
+									  }}
+
 								>
 								<i className="fas fa-trash-alt"></i>
 								</button>

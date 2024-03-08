@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			getPeople: async () => {
 				const response = await fetch(
-					baseURL + "people?page=1&limit=100"
+					baseURL + "people?page=1&limit=25"
 				);
 				const body = await response.json();
 				const people = body.results;
@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			getPlanets: async () => {
 				const response = await fetch(
-					baseURL + "planets?page=1&limit=100"
+					baseURL + "planets?page=1&limit=25"
 				);
 				const body = await response.json();
 				const planets = body.results;
@@ -50,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			getStarships: async () => {
 				const response = await fetch(
-					baseURL + "starships?page=1&limit=100"
+					baseURL + "starships?page=1&limit=25"
 				);
 				const body = await response.json();
 				const starships = body.results;
@@ -76,11 +76,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				store.favorites.push(newFavorite)
 				setStore(store)
 			},
-			deleteFavorite: (uid, category) => {
-				let store = getStore()
-				let newFavorites = store.favorites.filter(item => item.uid == uid && item.category == category)
-				setStore({favorites: newFavorites })
-			}
+			// deleteFavorite: (uid, category) => {
+			// 	let store = getStore()
+			// 	let newFavorites = store.favorites.filter(item => item.uid == uid && item.category == category)
+			// 	setStore({favorites: newFavorites })
+			// },
+			deleteFavorite: (name, category) => {
+				let store = getStore();
+				let newFavorites = store.favorites.filter(item => item.name !== name || item.category !== category);
+				setStore({ favorites: newFavorites });
+			  }
 		}
 	};
 
