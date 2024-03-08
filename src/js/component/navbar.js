@@ -29,15 +29,6 @@ export const Navbar = () => {
 								<button
 									type="button"
 									class="btn "
-									// data-bs-toggle="modal"
-									// data-bs-target={"#deleteModal"+contact.id}
-									// onClick={() => {
-									// 	let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "people" )
-									// 	if(checkFavorite){
-									// 		actions.deleteFavorite(favorite.uid, "people");
-									// 	} else {
-									// 		console.log("Person not found in favorites");
-									// 	}}}
 									onClick={() => {
 										let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "people");
 										if (checkFavorite) {
@@ -64,8 +55,14 @@ export const Navbar = () => {
 									<button
 										type="button"
 										class="btn "
-										data-bs-toggle="modal"
-										// data-bs-target={"#deleteModal"+contact.id}
+										onClick={() => {
+											let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "planets");
+											if (checkFavorite) {
+											  actions.deleteFavorite(favorite.name, "planets");
+											} else {
+											  console.log("Planets not found in favorites");
+											}
+										  }}
 									>
 									<i className="fas fa-trash-alt"></i>
 									</button>
@@ -83,8 +80,14 @@ export const Navbar = () => {
 									<button
 										type="button"
 										class="btn "
-										data-bs-toggle="modal"
-										// data-bs-target={"#deleteModal"+contact.id}
+										onClick={() => {
+											let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "starships");
+											if (checkFavorite) {
+											  actions.deleteFavorite(favorite.name, "starships");
+											} else {
+											  console.log("Person not found in favorites");
+											}
+										  }}
 									>
 									<i className="fas fa-trash-alt"></i>
 									</button>
