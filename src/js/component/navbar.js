@@ -49,8 +49,7 @@ export const Navbar = () => {
 							.filter((favorite) => favorite.category === "planets")
 							.map((favorite, index) => (
 								<li key={index} className="dropdown-item" >
-									{console.log(favorite)} 
-									{favorite.name}
+									<Link to={"/planet/" + favorite.uid}  >{favorite.name}</Link>
 									<button
 										type="button"
 										class="btn "
@@ -74,8 +73,7 @@ export const Navbar = () => {
 							.filter((favorite) => favorite.category === "starships")
 							.map((favorite, index) => (
 								<li key={index} className="dropdown-item" >
-									{console.log(favorite)} 
-									{favorite.name}
+									<Link to={"/starship/" + favorite.uid}  >{favorite.name}</Link>
 									<button
 										type="button"
 										class="btn "
