@@ -23,7 +23,14 @@ export const StarshipCard = ({ starship }) => {
                         <p className="card-text">{detail.properties.model}</p>
                         <p className="card-text">{detail.properties.class}</p>
                         <Link to={"/starship/" + starship.uid} className="btn btn-primary">more info</Link>
-                        <button className="danger m-2" >Favorites</button>
+                        <button className="danger m-2" onClick={() => {
+                            let checkStarship = store.favorites.find((item) => item.name === starship.name && item.category === "starships" )
+                            if(checkStarship){
+                                actions.removeFavorite(starship.uid, "starships");
+                            } else {
+                                actions.addFavorite(starship.name, starship.uid, "starships");
+                            }
+                        }} >Favorites</button>
                     </div>
                 </div>
             ) : null}

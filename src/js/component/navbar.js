@@ -26,6 +26,14 @@ export const Navbar = () => {
 							<li key={index} className="dropdown-item" >
 								{console.log(favorite)} 
 								{favorite.name}
+								<button
+									type="button"
+									class="btn "
+									data-bs-toggle="modal"
+									// data-bs-target={"#deleteModal"+contact.id}
+								>
+								<i className="fas fa-trash-alt"></i>
+								</button>
 							</li>
 						))}
 					</li>
@@ -37,10 +45,36 @@ export const Navbar = () => {
 								<li key={index} className="dropdown-item" >
 									{console.log(favorite)} 
 									{favorite.name}
+									<button
+										type="button"
+										class="btn "
+										data-bs-toggle="modal"
+										// data-bs-target={"#deleteModal"+contact.id}
+									>
+									<i className="fas fa-trash-alt"></i>
+									</button>
 								</li>
 						))}
 					</li>
-					<li><a className="dropdown-item" href="#"><h5>Starships</h5></a></li>
+					<li id="starshipsFavorites" className="dropdown-item">
+						<h5>Starships</h5>
+						{store.favorites
+							.filter((favorite) => favorite.category === "starships")
+							.map((favorite, index) => (
+								<li key={index} className="dropdown-item" >
+									{console.log(favorite)} 
+									{favorite.name}
+									<button
+										type="button"
+										class="btn "
+										data-bs-toggle="modal"
+										// data-bs-target={"#deleteModal"+contact.id}
+									>
+									<i className="fas fa-trash-alt"></i>
+									</button>
+								</li>
+						))}
+					</li>
 				</ul>
 			</div>
 			
