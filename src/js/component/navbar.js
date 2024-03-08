@@ -6,7 +6,7 @@ export const Navbar = () => {
 	const { store } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar sticky-top navbar-light bg-light mb-3">
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">
 					<img  src="https://visualpharm.com/assets/195/Star%20Wars-595b40b85ba036ed117de471.svg" className="card-img-top" alt="Empty Image" style={{ width: '200px', height: '100px' }} /> 
@@ -15,9 +15,9 @@ export const Navbar = () => {
 			<div className="ml-auto pr-5">
 			<div className="dropdown">
 				<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Dropdown button
+				Favorites
 				</button>
-				<ul className="dropdown-menu">
+				<ul className="dropdown-menu dropdown-menu-end">
 					<li id="characterFavorites" className="dropdown-item">
 						<h5>Characters</h5>
 						{store.favorites
@@ -78,9 +78,9 @@ export const Navbar = () => {
 				</ul>
 			</div>
 			
-				<Link to="/favorites">
+				{/* <Link to="/favorites">
 					<button className="btn btn-lg btn-primary" style={{ marginRight: "50px" }} >Favorites</button>
-				</Link>
+				</Link> */}
 			</div>
 		</nav>
 	);
