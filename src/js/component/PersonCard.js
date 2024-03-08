@@ -24,11 +24,11 @@ export const PersonCard = ({ person }) => {
                         <p className="card-text">{detail.properties.hair_color}</p>
                         <Link to={"/details/characters/" + person.uid} className="btn btn-primary">more info</Link>
                         <button className="danger m-2" onClick={() => {
-                            let checkPerson = store.favorites.find((item) => item.name == person.name && item.category == "people" )
+                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
                             if(checkPerson){
-                                actions.removeFavorite(person.uid, "people")
+                                actions.removeFavorite(person.uid, "people");
                             } else {
-                                actions.addFavorite(person.name, person.uid, "people")
+                                actions.addFavorite(person.name, person.uid, "people");
                             }
                         }} >Favorites</button>
                         

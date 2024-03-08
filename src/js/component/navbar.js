@@ -18,20 +18,28 @@ export const Navbar = () => {
 					Dropdown button
 				</button>
 				<ul className="dropdown-menu">
-					<li className="dropdown-item"><h5>Characters</h5></li>
-						{store.favorites.map((favorite, index) => (
+					<li id="characterFavorites" className="dropdown-item">
+						<h5>Characters</h5>
+						{store.favorites
+						.filter((favorite) => favorite.category === "people")
+						.map((favorite, index) => (
 							<li key={index} className="dropdown-item" >
 								{console.log(favorite)} 
 								{favorite.name}
 							</li>
 						))}
-					<li><a className="dropdown-item" href="#"><h5>Planets</h5></a></li>
-						{store.favorites.map((favorite, index) => (
+					</li>
+					<li id="planetsFavorites" className="dropdown-item">
+						<h5>Planets</h5>
+						{store.favorites
+							.filter((favorite) => favorite.category === "planets")
+							.map((favorite, index) => (
 								<li key={index} className="dropdown-item" >
 									{console.log(favorite)} 
 									{favorite.name}
 								</li>
-							))}
+						))}
+					</li>
 					<li><a className="dropdown-item" href="#"><h5>Starships</h5></a></li>
 				</ul>
 			</div>
