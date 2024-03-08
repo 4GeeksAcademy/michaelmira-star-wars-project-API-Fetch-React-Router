@@ -18,11 +18,12 @@ export const Navbar = () => {
 					Dropdown button
 				</button>
 				<ul className="dropdown-menu">
+					
 					{store.favorites.map((favorite, index) => (
 						<li key={index} className="dropdown-item" >
 							<h5>Characters</h5>
-							<p>Luke Skywalker</p>
-							{store.favorites} 
+							{console.log(favorite)} 
+							{favorite.name}
 						</li>
 					))}
 					{store.favorites.length === 0 && (
