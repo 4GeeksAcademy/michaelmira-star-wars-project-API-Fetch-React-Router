@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 const BACKEND_URL = "https://starwars-visualguide.com/assets/img/planets/"
 
-export const PlanetsDetailsPage = () => {
+export const PlanetsDetailsPage = ({ planet }) => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
     const params = useParams()
@@ -33,11 +33,11 @@ export const PlanetsDetailsPage = () => {
                             <h3 className="card-text display-5">Surface Water : {detail?.properties.surface_water}</h3>
                             <h3 className="card-text display-5">Description : {detail?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() => {
-                                let checkPlanet = store.favorites.find((item) => item.name === planet.name && item.category === "planets" )
+                                let checkPlanet = store.favorites.find((item) => item.name === detail?.properties.name && item.category === "planets" )
                                 if(checkPlanet){
-                                    actions.removeFavorite(planet.uid, "planets")
+                                    actions.removeFavorite(detail?.properties.uid, "planets")
                                 } else {
-                                    actions.addFavorite(planet.name, planet.uid, "planets")
+                                    actions.addFavorite(detail?.properties.name, detail?.properties.uid, "planets")
                                 }
                             }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>

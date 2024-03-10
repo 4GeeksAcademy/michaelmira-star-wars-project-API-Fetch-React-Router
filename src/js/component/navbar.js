@@ -27,7 +27,7 @@ export const Navbar = () => {
 									<Link to={"/details/characters/" + favorite.uid}  >{favorite.name}</Link>
 									<button
 										type="button"
-										class="btn "
+										className="btn "
 										onClick={() => {
 											let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "people");
 											if (checkFavorite) {
@@ -52,7 +52,7 @@ export const Navbar = () => {
 										<Link to={"/planet/" + favorite.uid}  >{favorite.name}</Link>
 										<button
 											type="button"
-											class="btn "
+											className="btn "
 											onClick={() => {
 												let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "planets");
 												if (checkFavorite) {
@@ -76,7 +76,7 @@ export const Navbar = () => {
 									<Link to={"/starship/" + favorite.uid}  >{favorite.name}</Link>
 									<button
 										type="button"
-										class="btn "
+										className="btn "
 										onClick={() => {
 											let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "starships");
 											if (checkFavorite) {
