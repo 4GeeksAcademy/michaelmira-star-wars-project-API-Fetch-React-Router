@@ -23,7 +23,7 @@ export const PlanetCard = ({ planet }) => {
                         <p className="card-text">{detail.properties.population}</p>
                         <p className="card-text">{detail.properties.terrain}</p>
                         <Link to={"/planet/" + planet.uid} className="btn btn-primary">more info</Link>
-                        <button className="danger m-2" onClick={() => {
+                        <button className="btn btn-primary m-2" onClick={() => {
                             let checkPlanet = store.favorites.find((item) => item.name === planet.name && item.category === "planets" )
                             if(checkPlanet){
                                 actions.removeFavorite(planet.uid, "planets")

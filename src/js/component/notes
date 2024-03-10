@@ -1,14 +1,12 @@
-deleteFavorite: (name, category) => {
-    let store = getStore();
-    let newFavorites = store.favorites.filter(item => item.name !== name || item.category !== category);
-    setStore({ favorites: newFavorites });
-  }
-
-  onClick={() => {
-    let checkFavorite = store.favorites.find((item) => item.name === favorite.name && item.category === "people");
-    if (checkFavorite) {
-      actions.deleteFavorite(favorite.name, "people");
-    } else {
-      console.log("Person not found in favorites");
-    }
-  }}
+"model": "Twin Ion Engine Advanced x1",
+      "starship_class": "Starfighter",
+      "manufacturer": "Sienar Fleet Systems",
+      "cost_in_credits": "unknown",
+      "length": "9.2",
+      "crew": "1",
+      "passengers": "0",
+      "max_atmosphering_speed": "1200",
+      "hyperdrive_rating": "1.0",
+      "MGLT": "105",
+      "cargo_capacity": "150",
+      "consumables": "5 days",
