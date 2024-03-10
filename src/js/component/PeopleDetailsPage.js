@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
 
-export const PeopleDetailsPage = () => {
+export const PeopleDetailsPage = ({ person }) => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
     const params = useParams()
@@ -32,13 +32,14 @@ export const PeopleDetailsPage = () => {
                             <h3 className="card-text display-4">Gender : {detail?.properties.gender}</h3>
                             <h3 className="card-text display-4">Description : {detail?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() => {
-                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
-                            if(checkPerson){
-                                actions.removeFavorite(person.uid, "people");
-                            } else {
-                                actions.addFavorite(person.name, person.uid, "people");
-                            }
-                            }} >Favorites</button>
+                                let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
+                                if(checkPerson){
+                                    actions.removeFavorite(person.uid, "people");
+                                } else {
+                                    actions.addFavorite(detail?.properties.name, detail?.properties.uid, "people");
+                                }
+                                }} >Favorites
+                            </button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>
