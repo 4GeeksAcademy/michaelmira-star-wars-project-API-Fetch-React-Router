@@ -32,15 +32,14 @@ export const StarshipsDetailsPage = ({ starship }) => {
                             <h3 className="card-text display-5">Terrain : {detail?.properties.terrain}</h3>
                             <h3 className="card-text display-5">Surface Water : {detail?.properties.surface_water}</h3>
                             <h3 className="card-text display-5">Description : {detail?.description}</h3>
-                            <button className="btn btn-primarym-2" onClick={() => {
+                            <button className="btn btn-primary m-2" onClick={() => {
                                 let checkStarship = store.favorites.find((item) => item.name === detail?.properties.name && item.category === "starships" )
                                 if(checkStarship){
-                                    actions.removeFavorite(detail?.properties.uid, "starships");
+                                    actions.removeFavorite(detail?.properties.uid, "starships")
                                 } else {
-                                    actions.addFavorite(detail?.properties.name, detail?.properties.uid, "starships");
+                                    actions.addFavorite(detail?.properties.name, detail?.properties.uid, "starships")
                                 }
-                                }} >Favorites
-                            </button>
+                            }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>
