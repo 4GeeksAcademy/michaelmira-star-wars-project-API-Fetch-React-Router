@@ -23,6 +23,7 @@ export const PeopleDetailsPage = ({ person }) => {
                     <div className="col-md-6">
                         <div className="card-body text-center">
                             <h1 className="card-title display-1 "><strong>Name : {detail?.properties.name}</strong></h1>
+                            <h1 className="card-title display-1 "><strong>Name : {person.name}</strong></h1>
                             <h3 className="card-text display-4">Height : {detail?.properties.height}</h3>
                             <h3 className="card-text display-4">Weight : {detail?.properties.mass}</h3>
                             <h3 className="card-text display-4">Hair Color : {detail?.properties.hair_color}</h3>
@@ -32,14 +33,13 @@ export const PeopleDetailsPage = ({ person }) => {
                             <h3 className="card-text display-4">Gender : {detail?.properties.gender}</h3>
                             <h3 className="card-text display-4">Description : {detail?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() => {
-                                let checkPerson = store.favorites.find((item) => item.name === detail?.properties.name && item.category === "people" )
-                                if(checkPerson){
-                                    actions.removeFavorite(detail?.properties.uid, "people");
-                                } else {
-                                    actions.addFavorite(detail?.properties.name, detail?.properties.uid, "people");
-                                }
-                                }} >Favorites
-                            </button>
+                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
+                            if(checkPerson){
+                                actions.removeFavorite(person.uid, "people");
+                            } else {
+                                actions.addFavorite(person.name, person.uid, "people");
+                            }
+                            }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>

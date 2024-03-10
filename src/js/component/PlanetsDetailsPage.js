@@ -33,12 +33,12 @@ export const PlanetsDetailsPage = ({ planet }) => {
                             <h3 className="card-text display-5">Surface Water : {detail?.properties.surface_water}</h3>
                             <h3 className="card-text display-5">Description : {detail?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() => {
-                                let checkPlanet = store.favorites.find((item) => item.name === detail?.properties.name && item.category === "planets" )
-                                if(checkPlanet){
-                                    actions.removeFavorite(detail?.properties.uid, "planets")
-                                } else {
-                                    actions.addFavorite(detail?.properties.name, detail?.properties.uid, "planets")
-                                }
+                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
+                            if(checkPerson){
+                                actions.removeFavorite(person.uid, "people");
+                            } else {
+                                actions.addFavorite(person.name, person.uid, "people");
+                            }
                             }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
