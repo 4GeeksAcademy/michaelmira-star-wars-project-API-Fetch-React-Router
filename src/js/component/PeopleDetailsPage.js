@@ -31,6 +31,14 @@ export const PeopleDetailsPage = () => {
                             <h3 className="card-text display-4">Birth Year : {detail?.properties.birth_year}</h3>
                             <h3 className="card-text display-4">Gender : {detail?.properties.gender}</h3>
                             <h3 className="card-text display-4">Description : {detail?.description}</h3>
+                            <button className="btn btn-primary m-2" onClick={() => {
+                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
+                            if(checkPerson){
+                                actions.removeFavorite(person.uid, "people");
+                            } else {
+                                actions.addFavorite(person.name, person.uid, "people");
+                            }
+                            }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>

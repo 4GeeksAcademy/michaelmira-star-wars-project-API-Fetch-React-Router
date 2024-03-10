@@ -31,7 +31,6 @@ export const PersonCard = ({ person }) => {
                                 actions.addFavorite(person.name, person.uid, "people");
                             }
                         }} >Favorites</button>
-                        
                     </div>
                 </div>
             ) : null}

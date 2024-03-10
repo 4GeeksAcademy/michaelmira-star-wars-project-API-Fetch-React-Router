@@ -30,7 +30,8 @@ export const StarshipCard = ({ starship }) => {
                             } else {
                                 actions.addFavorite(starship.name, starship.uid, "starships");
                             }
-                        }} >Favorites</button>
+                            }} >Favorites
+                        </button>
                     </div>
                 </div>
             ) : null}

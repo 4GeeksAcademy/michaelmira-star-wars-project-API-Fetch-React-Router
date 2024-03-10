@@ -32,6 +32,14 @@ export const PlanetsDetailsPage = () => {
                             <h3 className="card-text display-5">Terrain : {detail?.properties.terrain}</h3>
                             <h3 className="card-text display-5">Surface Water : {detail?.properties.surface_water}</h3>
                             <h3 className="card-text display-5">Description : {detail?.description}</h3>
+                            <button className="btn btn-primary m-2" onClick={() => {
+                                let checkPlanet = store.favorites.find((item) => item.name === planet.name && item.category === "planets" )
+                                if(checkPlanet){
+                                    actions.removeFavorite(planet.uid, "planets")
+                                } else {
+                                    actions.addFavorite(planet.name, planet.uid, "planets")
+                                }
+                            }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>
