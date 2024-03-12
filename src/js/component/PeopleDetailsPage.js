@@ -9,7 +9,7 @@ export const PeopleDetailsPage = ({ person }) => {
 	const [ detail, setDetail ] = useState()
     const params = useParams()
 	useEffect(() => {
-		actions.getPerson(params.uid)
+		actions.getPerson(params.uid, person.uid)
 			.then(detailPerson => setDetail(detailPerson));
 	}, []);
 
@@ -33,11 +33,11 @@ export const PeopleDetailsPage = ({ person }) => {
                             <h3 className="card-text display-4">Gender : {detail?.properties.gender}</h3>
                             <h3 className="card-text display-4">Description : {detail?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() => {
-                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
+                            let checkPerson = store.favorites.find((item) => item.name === detail?.properties.name && item.category === "people" )
                             if(checkPerson){
-                                actions.removeFavorite(person.uid, "people");
+                                actions.removeFavorite(detail?.properties.uid, "people");
                             } else {
-                                actions.addFavorite(person.name, person.uid, "people");
+                                actions.addFavorite(detail?.properties.name, detail?.properties.uid, "people");
                             }
                             }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>

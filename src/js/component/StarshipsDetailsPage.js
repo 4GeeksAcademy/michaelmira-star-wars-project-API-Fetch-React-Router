@@ -18,7 +18,7 @@ export const StarshipsDetailsPage = ({ starship }) => {
             <div className="card border border-0">
                 <div className="row text-center">
                     <div className="col-md-6 text-center">
-                        <img src={BACKEND_URL+params.uid+".jpg"} style={{ maxWidth: "50rem" }}  className="card-img-top" alt="..." />
+                        <img src={BACKEND_URL+params.uid+".jpg"} style={{ minWidth: "52rem",  minHeight: "40rem"  }}  className="card-img-top" alt="..." />
                     </div>
                     <div className="col-md-6">
                         <div className="card-body text-center">
