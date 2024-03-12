@@ -4,14 +4,16 @@ import { Link, useParams } from "react-router-dom";
 
 const BACKEND_URL = "https://starwars-visualguide.com/assets/img/starships/"
 
-export const StarshipsDetailsPage = ({ starship }) => {
+export const StarshipsDetailsPage = () => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
     const params = useParams()
+	let starship = store.starships.find((item)=>item.uid==params.uid)
 	useEffect(() => {
-		actions.getStarship(params.uid)
-			.then(detailStarship => setDetail(detailStarship));
-	}, []);
+		fetch(starship.url)
+        .then(resp => resp.json())
+        .then(data => setDetail(data.result.properties))
+	}, [])
 
 	return (
         <React.Fragment>
@@ -22,24 +24,24 @@ export const StarshipsDetailsPage = ({ starship }) => {
                     </div>
                     <div className="col-md-6">
                         <div className="card-body text-center">
-                            <h1 className="card-title display-3 "><strong>Name : {detail?.properties.name}</strong></h1>
-                            <h3 className="card-text ">Starship Class : {detail?.properties.starship_class}</h3>
-                            <h3 className="card-text ">Manufacturer : {detail?.properties.manufacturer}</h3>
-                            <h3 className="card-text ">Cost In Credits : {detail?.properties.cost_in_credits}</h3>
-                            <h3 className="card-text ">Length : {detail?.properties.length}</h3>
-                            <h3 className="card-text ">Crew : {detail?.properties.crew}</h3>
-                            <h3 className="card-text ">Passengers : {detail?.properties.passengers}</h3>
-                            <h3 className="card-text ">Max Atmosphering Speed : {detail?.properties.max_atmosphering_speed}</h3>
-                            <h3 className="card-text ">Hyperdrive Rating : {detail?.properties.hyperdrive_rating}</h3>
+                            <h1 className="card-title display-3 "><strong>Name : {detail?.name}</strong></h1>
+                            <h3 className="card-text ">Starship Class : {detail?.starship_class}</h3>
+                            <h3 className="card-text ">Manufacturer : {detail?.manufacturer}</h3>
+                            <h3 className="card-text ">Cost In Credits : {detail?.cost_in_credits}</h3>
+                            <h3 className="card-text ">Length : {detail?.length}</h3>
+                            <h3 className="card-text ">Crew : {detail?.crew}</h3>
+                            <h3 className="card-text ">Passengers : {detail?.passengers}</h3>
+                            <h3 className="card-text ">Max Atmosphering Speed : {detail?.max_atmosphering_speed}</h3>
+                            <h3 className="card-text ">Hyperdrive Rating : {detail?.hyperdrive_rating}</h3>
                             <h3 className="card-text ">Description : {detail?.description}</h3>
-                            <button className="btn btn-primary m-2" onClick={() => {
-                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
-                            if(checkPerson){
-                                actions.removeFavorite(person.uid, "people");
-                            } else {
-                                actions.addFavorite(person.name, person.uid, "people");
-                            }
-                        }} >Favorites</button>
+                            <button className="btn btn-primary m-2" onClick={() =>{
+                                let isOnTheList = store.favorites.find((item) =>item.name==detail.name && item.category=="starshps")
+                                if(isOnTheList){
+                                    actions.deleteFavorite(detail.name, "starships")
+                                } else {
+                                    actions.addFavorite(detail.name, starship.uid, "starships")
+                                }
+                            }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
                     </div>
