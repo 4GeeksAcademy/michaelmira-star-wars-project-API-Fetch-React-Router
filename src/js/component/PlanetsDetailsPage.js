@@ -4,14 +4,17 @@ import { Link, useParams } from "react-router-dom";
 
 const BACKEND_URL = "https://starwars-visualguide.com/assets/img/planets/"
 
-export const PlanetsDetailsPage = ({ planet }) => {
+export const PlanetsDetailsPage = () => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
     const params = useParams()
+	let planet = store.planets.find((item)=>item.uid==params.uid)
 	useEffect(() => {
-		actions.getPlanet(params.uid)
-			.then(detailPlanet => setDetail(detailPlanet));
-	}, []);
+		fetch(planet.url)
+        .then(resp => resp.json())
+        .then(data => setDetail(data.result.properties))
+        
+	}, [])
 
 	return (
         <React.Fragment>
@@ -22,23 +25,23 @@ export const PlanetsDetailsPage = ({ planet }) => {
                     </div>
                     <div className="col-md-6">
                         <div className="card-body text-center">
-                            <h1 className="card-title display-2 "><strong>Name : {detail?.properties.name}</strong></h1>
-                            <h3 className="card-text display-5">Diameter : {detail?.properties.diameter}</h3>
-                            <h3 className="card-text display-5">Rotation Period : {detail?.properties.rotation_period}</h3>
-                            <h3 className="card-text display-5">Orbital Period : {detail?.properties.orbital_period}</h3>
-                            <h3 className="card-text display-5">Gravity : {detail?.properties.gravity}</h3>
-                            <h3 className="card-text display-5">Population : {detail?.properties.population}</h3>
-                            <h3 className="card-text display-5">Climate : {detail?.properties.climate}</h3>
-                            <h3 className="card-text display-5">Terrain : {detail?.properties.terrain}</h3>
-                            <h3 className="card-text display-5">Surface Water : {detail?.properties.surface_water}</h3>
+                            <h1 className="card-title display-2 "><strong>Name : {detail?.name}</strong></h1>
+                            <h3 className="card-text display-5">Diameter : {detail?.diameter}</h3>
+                            <h3 className="card-text display-5">Rotation Period : {detail?.rotation_period}</h3>
+                            <h3 className="card-text display-5">Orbital Period : {detail?.orbital_period}</h3>
+                            <h3 className="card-text display-5">Gravity : {detail?.gravity}</h3>
+                            <h3 className="card-text display-5">Population : {detail?.population}</h3>
+                            <h3 className="card-text display-5">Climate : {detail?.climate}</h3>
+                            <h3 className="card-text display-5">Terrain : {detail?.terrain}</h3>
+                            <h3 className="card-text display-5">Surface Water : {detail?.surface_water}</h3>
                             <h3 className="card-text display-5">Description : {detail?.description}</h3>
-                            <button className="btn btn-primary m-2" onClick={() => {
-                            let checkPerson = store.favorites.find((item) => item.name === person.name && item.category === "people" )
-                            if(checkPerson){
-                                actions.removeFavorite(person.uid, "people");
-                            } else {
-                                actions.addFavorite(person.name, person.uid, "people");
-                            }
+                            <button className="btn btn-primary m-2" onClick={() =>{
+                                let isOnTheList = store.favorites.find((item) =>item.name==detail.name && item.category=="planets")
+                                if(isOnTheList){
+                                    actions.deleteFavorite(detail.name, "planets")
+                                } else {
+                                    actions.addFavorite(detail.name, planet.uid, "planets")
+                                }
                             }} >Favorites</button>
                             <Link to={"/"} className="btn btn-primary"> Link Home </Link>
                         </div>
