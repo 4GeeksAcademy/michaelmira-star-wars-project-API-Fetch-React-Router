@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../../styles/home.css";
 import { PeopleSlider } from "../component/PeopleSlider";
 import { PlanetsSlider } from "../component/PlanetsSlider";
