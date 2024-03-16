@@ -18,7 +18,7 @@ export const Navbar = () => {
 					Favorites
 					</button>
 					<ul className="dropdown-menu dropdown-menu-end">
-						<li id="characterFavorites" className="dropdown-item ">
+						<div id="characterFavorites" className="dropdown-item ">
 							<h5>Characters</h5>
 							{store.favorites
 							.filter((favorite) => favorite.category === "people")
@@ -42,8 +42,8 @@ export const Navbar = () => {
 									</button>
 								</li>
 							))}
-						</li>
-						<li id="planetsFavorites" className="dropdown-item">
+						</div>
+						<div id="planetsFavorites" className="dropdown-item">
 							<h5>Planets</h5>
 							{store.favorites
 								.filter((favorite) => favorite.category === "planets")
@@ -66,8 +66,8 @@ export const Navbar = () => {
 										</button>
 									</li>
 							))}
-						</li>
-						<li id="starshipsFavorites" className="dropdown-item">
+						</div>
+						<div id="starshipsFavorites" className="dropdown-item">
 							<h5>Starships</h5>
 							{store.favorites
 								.filter((favorite) => favorite.category === "starships")
@@ -90,7 +90,7 @@ export const Navbar = () => {
 									</button>
 								</li>
 							))}
-						</li>
+						</div>
 					</ul>
 				</div>
 			</div>

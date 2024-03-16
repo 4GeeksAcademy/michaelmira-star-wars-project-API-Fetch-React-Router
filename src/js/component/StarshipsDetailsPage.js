@@ -7,6 +7,7 @@ const BACKEND_URL = "https://starwars-visualguide.com/assets/img/starships/"
 export const StarshipsDetailsPage = () => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
+    const [ descriptionTag, setDescriptionTag] = useState()
     const params = useParams()
 	let starship = store.starships.find((item)=>item.uid==params.uid)
 	useEffect(() => {
@@ -15,12 +16,18 @@ export const StarshipsDetailsPage = () => {
         .then(data => setDetail(data.result.properties))
 	}, [])
 
+    useEffect(() => {
+		fetch(starship.url)
+        .then(resp => resp.json())
+        .then(data => setDescriptionTag(data.result))
+	}, [])
+
 	return (
         <React.Fragment>
             <div className="card border border-0">
                 <div className="row text-center">
                     <div className="col-md-6 text-center">
-                        <img src={BACKEND_URL+params.uid+".jpg"} style={{ minWidth: "52rem",  minHeight: "40rem"  }}  className="card-img-top" alt="..." />
+                        <img src={BACKEND_URL+params.uid+".jpg"} style={{ maxWidth: "50rem", height: "auto" }}  className="card-img-top" alt="..." />
                     </div>
                     <div className="col-md-6">
                         <div className="card-body text-center">
@@ -33,7 +40,7 @@ export const StarshipsDetailsPage = () => {
                             <h3 className="card-text ">Passengers : {detail?.passengers}</h3>
                             <h3 className="card-text ">Max Atmosphering Speed : {detail?.max_atmosphering_speed}</h3>
                             <h3 className="card-text ">Hyperdrive Rating : {detail?.hyperdrive_rating}</h3>
-                            <h3 className="card-text ">Description : {detail?.description}</h3>
+                            <h3 className="card-text ">Description : {descriptionTag?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() =>{
                                 let isOnTheList = store.favorites.find((item) =>item.name==detail.name && item.category=="starshps")
                                 if(isOnTheList){

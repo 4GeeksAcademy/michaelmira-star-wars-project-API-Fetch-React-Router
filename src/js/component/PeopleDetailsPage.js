@@ -8,6 +8,7 @@ export const PeopleDetailsPage = () => {
     const baseImgURL = "https://starwars-visualguide.com/assets/img/characters/"
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
+    const [ descriptionTag, setDescriptionTag] = useState()
     const params = useParams()
     let person = store.people.find((item)=>item.uid==params.uid)
 	useEffect(() => {
@@ -15,6 +16,11 @@ export const PeopleDetailsPage = () => {
         .then(resp => resp.json())
         .then(data => setDetail(data.result.properties))
         
+	}, [])
+    useEffect(() => {
+		fetch(person.url)
+        .then(resp => resp.json())
+        .then(data => setDescriptionTag(data.result))
 	}, [])
 
 	return (
@@ -34,7 +40,7 @@ export const PeopleDetailsPage = () => {
                             <h3 className="card-text display-4">Eye Color : {detail?.eye_color}</h3>
                             <h3 className="card-text display-4">Birth Year : {detail?.birth_year}</h3>
                             <h3 className="card-text display-4">Gender : {detail?.gender}</h3>
-                            <h3 className="card-text display-4">Description : {detail?.description}</h3>
+                            <h3 className="card-text display-4">Description : {descriptionTag?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() =>{
                                 let isOnTheList = store.favorites.find((item) =>item.name==detail.name && item.category=="people")
                                 if(isOnTheList){

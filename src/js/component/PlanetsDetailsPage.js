@@ -7,6 +7,7 @@ const BACKEND_URL = "https://starwars-visualguide.com/assets/img/planets/"
 export const PlanetsDetailsPage = () => {
     const { store, actions } = useContext(Context);
 	const [ detail, setDetail ] = useState()
+    const [ descriptionTag, setDescriptionTag] = useState()
     const params = useParams()
 	let planet = store.planets.find((item)=>item.uid==params.uid)
 	useEffect(() => {
@@ -14,6 +15,12 @@ export const PlanetsDetailsPage = () => {
         .then(resp => resp.json())
         .then(data => setDetail(data.result.properties))
         
+	}, [])
+
+    useEffect(() => {
+		fetch(planet.url)
+        .then(resp => resp.json())
+        .then(data => setDescriptionTag(data.result))
 	}, [])
 
 	return (
@@ -34,7 +41,7 @@ export const PlanetsDetailsPage = () => {
                             <h3 className="card-text display-5">Climate : {detail?.climate}</h3>
                             <h3 className="card-text display-5">Terrain : {detail?.terrain}</h3>
                             <h3 className="card-text display-5">Surface Water : {detail?.surface_water}</h3>
-                            <h3 className="card-text display-5">Description : {detail?.description}</h3>
+                            <h3 className="card-text display-5">Description : {descriptionTag?.description}</h3>
                             <button className="btn btn-primary m-2" onClick={() =>{
                                 let isOnTheList = store.favorites.find((item) =>item.name==detail.name && item.category=="planets")
                                 if(isOnTheList){
