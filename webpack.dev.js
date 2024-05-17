@@ -7,30 +7,46 @@ const port = 3000;
 let publicUrl = `ws://localhost:${port}/ws`;
 
 //only for gitpod
-if(process.env.GITPOD_WORKSPACE_URL){
+if (process.env.GITPOD_WORKSPACE_URL) {
   const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
   publicUrl = `wss://${port}-${host}/ws`;
 }
 
 //only for codespaces
-if(process.env.CODESPACE_NAME){
+if (process.env.CODESPACE_NAME) {
   publicUrl = `wss://${process.env.CODESPACE_NAME}-${port}.preview.app.github.dev/ws`;
 }
 
 module.exports = merge(common, {
-    mode: 'development',
-    devtool: 'cheap-module-source-map',
-    devServer: {
-        port,
-        hot: true,
-        allowedHosts: "all",
-        historyApiFallback: true,
-        static: {
-          directory: path.resolve(__dirname, "dist"),
-        },
-        client: {
-          webSocketURL: publicUrl
-        },
+  mode: 'development',
+  devtool: 'cheap-module-source-map',
+  devServer: {
+    port,
+    hot: true,
+    allowedHosts: "all",
+    historyApiFallback: true,
+    static: {
+      directory: path.resolve(__dirname, "dist"),
     },
-    plugins: []
+    client: {
+      webSocketURL: publicUrl
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(mp4|webm|ogg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'videos/',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: []
 });
