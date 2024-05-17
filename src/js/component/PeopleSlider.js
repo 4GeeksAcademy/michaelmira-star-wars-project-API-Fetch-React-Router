@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { PersonCard } from "./PersonCard";
 
+
 export const PeopleSlider = () => {
     const { store } = useContext(Context);
 

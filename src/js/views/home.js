@@ -10,7 +10,7 @@ export const Home = () => {
     <>
       <div className="landing ">
         <div className="video-container">
-          <video src={video} autoPlay muted loop></video>
+          <video className="rotated-video" src={video} autoPlay muted loop></video>
         </div>
         <div className="overlay"></div>
         <div className="content ">

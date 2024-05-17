@@ -24,17 +24,6 @@
   overflow: hidden; /* Hide overflow to prevent scrollbars */
 }
 
-.rotated-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vh; /* Set width to viewport height */
-  height: 100vw; /* Set height to viewport width */
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
-  transform-origin: top left;
-  transform: rotate(90deg) translateY(-100%); /* Rotate 90 degrees and move to the top */
-  z-index: -1; /* Ensure the video stays behind other content */
-}
 
 .video-container {
   position: relative;
