@@ -15,11 +15,11 @@ export const Home = () => {
         <div className="overlay"></div>
         <div className="content ">
           <div className="cardDiv text-center d-flex flex-column w-100 align-items-center  ">
-            <h2 className="m-3">People</h2>
+            <h2 className="m-3 text-light">People</h2>
             <PeopleSlider />
-            <h2 className="m-3">Panets</h2>
+            <h2 className="m-3 text-light">Panets</h2>
             <PlanetsSlider />
-            <h2 className="m-3">Starships</h2>
+            <h2 className="m-3 text-light">Starships</h2>
             <StarshipsSlider />
           </div>
         </div>

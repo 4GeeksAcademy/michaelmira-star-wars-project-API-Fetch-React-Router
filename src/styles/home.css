@@ -1,43 +1,80 @@
 #cardDiv {
-    overflow-y: hidden !important;
-  }
-  
-  .landing {
-    position: relative;
-    width: 100vw; /* Set width to viewport width */
-    height: 100vh; /* Set height to viewport height */
-    overflow: hidden; /* Hide overflow to prevent scrollbars */
-  }
-  
-  .rotated-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vh; /* Set width to viewport height */
-    height: 100vw; /* Set height to viewport width */
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
-    transform-origin: top left;
-    transform: rotate(90deg) translateY(-100%); /* Rotate 90 degrees and move to the top */
-    z-index: -1; /* Ensure the video stays behind other content */
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-  }
-  
-  .content {
-    position: absolute;
-    top: 50%; /* Position content in the middle vertically */
-    left: 50%; /* Position content in the middle horizontally */
-    transform: translate(-50%, -50%); /* Center content */
-    width: 90%; /* Set width to 90% of the viewport width */
-    max-height: 90%; /* Set max height to 90% of the viewport height */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
-    z-index: 1; /* Ensure the content is above the video */
-  }
-  
+  overflow-y: hidden !important;
+}
+
+#cardDiv {
+  overflow: auto; /* Enable scrolling */
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+#cardDiv::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar width */
+  height: 0; /* Remove scrollbar height */
+}
+
+#cardDiv::-webkit-scrollbar-track {
+  background-color: transparent; /* Hide scrollbar track */
+}
+
+.landing {
+  position: relative;
+  width: 100vw; /* Set width to viewport width */
+  height: 100vh; /* Set height to viewport height */
+  overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
+.rotated-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vh; /* Set width to viewport height */
+  height: 100vw; /* Set height to viewport width */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  transform-origin: top left;
+  transform: rotate(90deg) translateY(-100%); /* Rotate 90 degrees and move to the top */
+  z-index: -1; /* Ensure the video stays behind other content */
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+
+.content {
+  position: absolute;
+  top: 50%; /* Position content in the middle vertically */
+  left: 50%; /* Position content in the middle horizontally */
+  transform: translate(-50%, -50%); /* Center content */
+  width: 90%; /* Set width to 90% of the viewport width */
+  max-height: 90%; /* Set max height to 90% of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  scrollbar-width: none;
+  z-index: 1; /* Ensure the content is above the video */
+}
+
+.card-title {
+  margin-bottom: 0.2rem; /* Adjust the margin bottom */
+}
+
+.card-text {
+  margin-bottom: 0.2rem; /* Adjust the margin bottom */
+}
