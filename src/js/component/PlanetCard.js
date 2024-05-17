@@ -16,8 +16,8 @@ export const PlanetCard = ({ planet }) => {
 	return (
         <React.Fragment>
             {detail !== undefined ? (
-                <div className="card" style={{ minWidth: "18rem" }}>
-                    <img src={BACKEND_URL+planet.uid+".jpg"}  className="card-img-top" alt="..." />
+                <div className="card" style={{ minWidth: "16rem" }}>
+                    <img src={BACKEND_URL+planet.uid+".jpg"} style={{ maxWidth: "15rem" }}  className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{planet.name}</h5>
                         <p className="card-text">{detail.properties.population}</p>

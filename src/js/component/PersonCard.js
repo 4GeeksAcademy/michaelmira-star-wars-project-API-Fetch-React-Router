@@ -16,7 +16,7 @@ export const PersonCard = ({ person }) => {
 	return (
         <React.Fragment>
             {detail !== undefined ? (
-                <div className="card" style={{ minWidth: "15rem" }}>
+                <div className="card" style={{ minWidth: "16rem" }}>
                     <img src={BACKEND_URL+person.uid+".jpg"} style={{ maxWidth: "15rem" }}  className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{person.name}</h5>

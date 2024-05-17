@@ -6,10 +6,10 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar sticky-top navbar-light bg-light mb-3">
+		<nav className="navbar sticky-top navbar-light bg-light">
 			<Link to="/">
-				<span className="navbar-brand mx-0 h1">
-					<img  src="https://visualpharm.com/assets/195/Star%20Wars-595b40b85ba036ed117de471.svg" className="card-img-top" alt="Empty Image" style={{ width: '200px', height: '100px' }} /> 
+				<span className="navbar-brand m-0 p-0">
+					<img  src="https://visualpharm.com/assets/195/Star%20Wars-595b40b85ba036ed117de471.svg" className="card-img-top" alt="Empty Image" style={{ width: '120px', height: '60px' }} /> 
 				</span>
 			</Link>
 			<div className="ml-auto ">
