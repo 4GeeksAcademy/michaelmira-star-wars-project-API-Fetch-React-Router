@@ -22,7 +22,7 @@ export const PlanetCard = ({ planet }) => {
 	return (
         <React.Fragment>
             {detail !== undefined && imageAvailable ? (
-                <div className="card" style={{ minWidth: "15rem", maxWidth: "15rem", backgroundColor: "transparent" }}>
+                <div className="card px-2 " style={{ minWidth: "15rem", maxWidth: "15rem", backgroundColor: "transparent" }}>
                     <img 
                         src={BACKEND_URL+planet.uid+".jpg"} 
                         style={{ maxWidth: "17rem",borderRadius: "10px" }}  

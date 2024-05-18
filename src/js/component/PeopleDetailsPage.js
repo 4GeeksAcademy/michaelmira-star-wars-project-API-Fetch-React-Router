@@ -15,7 +15,6 @@ export const PeopleDetailsPage = () => {
 		fetch(person.url)
         .then(resp => resp.json())
         .then(data => setDetail(data.result.properties))
-        
 	}, [])
     useEffect(() => {
 		fetch(person.url)

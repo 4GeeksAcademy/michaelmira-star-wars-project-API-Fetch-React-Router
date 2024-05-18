@@ -8,14 +8,14 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar sticky-top navbar-light"  style={{ backgroundColor: '#333333' }} >
 			<Link to="/">
-				<span className="navbar-brand m-0 p-0">
-					<img  src="https://visualpharm.com/assets/195/Star%20Wars-595b40b85ba036ed117de471.svg" className="card-img-top" alt="Empty Image" style={{ width: '120px', height: '60px' }} /> 
+				<span className="navbar-brand m-0 p-0 text-light ">
+					<img  src="https://www.freepnglogos.com/uploads/star-wars-logo-1.png" className="card-img-top text-light" alt="Empty Image" style={{ width: '120px', height: '60px' }} /> 
 				</span>
 			</Link>
 			<div className="ml-auto ">
 				<div className="dropdown px-3">
 					<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Favorites
+						Favorites
 					</button>
 					<ul className="dropdown-menu dropdown-menu-end">
 						<div id="characterFavorites" className="dropdown-item ">
