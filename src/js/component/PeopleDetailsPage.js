@@ -21,6 +21,10 @@ export const PeopleDetailsPage = () => {
       .then((data) => setDescriptionTag(data.result));
   }, []);
 
+  let isOnTheList = store.favorites.find(
+    (item) => item.name === detail.name && item.category === "people"
+  );
+
   return (
     <React.Fragment>
       <div className="card border border-0 ">
@@ -96,12 +100,14 @@ export const PeopleDetailsPage = () => {
                   </div>
                   <div>
                     <button
-                      className="btn btn-primary m-2"
+                      className={`btn m-2 ${
+                        isOnTheList ? "btn-danger" : "btn-primary"
+                      }`}
                       onClick={() => {
                         let isOnTheList = store.favorites.find(
                           (item) =>
-                            item.name == detail.name &&
-                            item.category == "people"
+                            item.name === detail.name &&
+                            item.category === "people"
                         );
                         if (isOnTheList) {
                           actions.deleteFavorite(detail.name, "people");
@@ -114,20 +120,11 @@ export const PeopleDetailsPage = () => {
                         }
                       }}
                     >
-                      Favorites
+                      {isOnTheList ? "Favorited" : "Favorite"}
                     </button>
-                    <Link to={"/"} className="btn btn-primary">
-                      {" "}
-                      Link Home{" "}
-                    </Link>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="row text-center">
-            <div className="col-md-6">
-              <div className="card-body text-center text-light "></div>
             </div>
           </div>
         </div>
