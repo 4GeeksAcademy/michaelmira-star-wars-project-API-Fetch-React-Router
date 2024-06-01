@@ -22,7 +22,7 @@ export const PeopleDetailsPage = () => {
   }, []);
 
   let isOnTheList = store.favorites.find(
-    (item) => item.name === detail.name && item.category === "people"
+    (item) => item.name === item.name && item.category === "people"
   );
 
   return (
